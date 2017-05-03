@@ -17,12 +17,12 @@ var session = require('express-session');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-var configDB.url = process.env.MONGOLAB_URI;
-console.log(configDB.url);
-mongoose.connect(configDB.url);
+var configDB = process.env.MONGOLAB_URI;
+console.log(configDB);
+mongoose.connect(configDB);
 
 mongoose.connection.on('connected', function () {
-	console.log('Mongoose default connection open to ' + configDB.url);
+	console.log('Mongoose default connection open to ' + configDB);
 });
 
 // If the connection throws an error
