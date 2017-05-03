@@ -26,7 +26,12 @@ router.get('/signup', isAuthenticated, function(req, res) {
 });
 
 router.get('/home', isAuthenticated, function(req, res) {
-	res.render('home.ejs', { user: req.user });
+	console.log("req", req);
+	if(req.user.local.firstLogin){
+		res.redirect('/changePassword');
+	}else {
+		res.render('home.ejs', {user: req.user});
+	}
 });
 
 router.get('/logout', function(req, res) {
@@ -40,13 +45,22 @@ router.post('/signup', passport.authenticate('local-signup', {
 	failureFlash: true
 }));
 
-router.post('/login', passport.authenticate('local-login'), function(req,res){
-	if(req.user.local.firstLogin){
-		res.redirect('/changePassword');
-	}else{
-		res.redirect('/home');
-	}
-});
+router.post('/login', passport.authenticate('local-login', {
+	successRedirect: '/home',
+	failureRedirect: '/login',
+	failureFlash: true
+}));
+
+
+// router.post('/login', passport.authenticate('local-login'), function(req,res, err){
+// 	console.log(err);
+// 	if(req.user.local.firstLogin){
+// 		res.redirect('/changePassword');
+// 	}else{
+// 		res.redirect('/home');
+// 	}
+// });
+
 
 router.post('/changePassword', isAuthenticated, passport.authenticate('local-reset', {
 	successRedirect: '/home',
