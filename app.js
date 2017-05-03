@@ -18,7 +18,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var configDB = require('./config/database.js');
-var uristring = configDB.url || process.env.MONGODB_URI;
+var uristring = process.env.MONGODB_URI;
 mongoose.connect(uristring, function (err, res) {
 	if (err) {
 		console.log ('ERROR connecting to: ' + uristring + '. ' + err);
