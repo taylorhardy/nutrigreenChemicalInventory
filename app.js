@@ -20,6 +20,19 @@ var users = require('./routes/users');
 var configDB = require('./config/database.js');
 mongoose.connect(configDB.url);
 
+mongoose.connection.on('connected', function () {
+	console.log('Mongoose default connection open to ' + configDB.url);
+});
+
+// If the connection throws an error
+mongoose.connection.on('error',function (err) {
+	console.log('Mongoose default connection error: ' + err);
+});
+
+// When the connection is disconnected
+mongoose.connection.on('disconnected', function () {
+	console.log('Mongoose default connection disconnected');
+});
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
