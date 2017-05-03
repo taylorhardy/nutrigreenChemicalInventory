@@ -18,6 +18,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var configDB = require('./config/database.js');
+console.log(configDB.url);
 mongoose.connect(configDB.url);
 
 mongoose.connection.on('connected', function () {
