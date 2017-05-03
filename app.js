@@ -17,7 +17,7 @@ var session = require('express-session');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-var configDB = require('./config/database.js');
+var configDB.url = process.env.MONGOLAB_URI;
 console.log(configDB.url);
 mongoose.connect(configDB.url);
 
