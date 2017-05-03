@@ -2,5 +2,5 @@
 	'use strict';
 
 	angular
-		.module('app', ['ngRoute', 'ngSanitize', 'ngMaterial']);
+		.module('app', ['ngRoute', 'ngSanitize']);
 })();
