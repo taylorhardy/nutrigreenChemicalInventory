@@ -2,13 +2,16 @@ var mongoose = require('mongoose');
 
 var ChemicalSchema = mongoose.Schema({
 	chemical: {
-		name: "",
-		type: "",
-		price: 0,
-		mixUnit: "",
-		mixPerUnit: 0,
-		applicationTypes: [{
-			name: ""
+		name: String,
+		type: String,
+		price: Number,
+		mixUnit: String,
+		mixPerUnit: Number,
+		amountUnit: String,
+		amountPerUnit: Number,
+		services: [{
+			name: String,
+			description: String
 		}]
 	}
 });

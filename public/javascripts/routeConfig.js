@@ -37,6 +37,11 @@
 				controller: 'reportIssueController',
 				controllerAs: 'vm'
 			})
+			.when('/resetUserPassword', {
+				templateUrl: 'partials/resetUserPassword.html',
+				controller: 'resetUserPasswordController',
+				controllerAs: 'vm'
+			})
 			.otherwise({
 				redirectTo: '/home'
 			});

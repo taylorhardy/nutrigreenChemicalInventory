@@ -72,10 +72,12 @@ module.exports = function(passport) {
 					console.log("user", user);
 					user.local.password = user.generateHash(password);
 					user.local.firstLogin = false;
+					user.local.passwordChangeDate = Date();
 					console.log("after change", user);
 					user.save();
 					return done(null, user);
 				});
 		}));
+
 };
 

@@ -9,21 +9,25 @@
 
 		var currentUser;
 
+		var service = {
+			getCurrentUser: getCurrentUser,
+			currentUser: currentUser,
+			addChemical: addChemical
+		};
+		return service;
+
 		function getCurrentUser() {
-			if (currentUser) {
+			return $http({
+				method: 'GET',
+				url: '/currentUser'
+			}).then(function (data) {
+				currentUser = data.data.local;
 				return currentUser;
-			} else {
-				return $http({
-					method: 'GET',
-					url: '/currentUser'
-				}).then(function (data) {
-					currentUser = data.data.local;
-					return currentUser;
-				});
-			}
+			});
+
 		}
 
-		function addChemical(chemical){
+		function addChemical(chemical) {
 			return $http.post('/addChemical', {
 				chemical: chemical
 
@@ -31,13 +35,6 @@
 				return data;
 			});
 		};
-
-		var service = {
-			getCurrentUser: getCurrentUser,
-			currentUser: currentUser,
-			addChemical: addChemical
-		};
-		return service;
 	}
 
 })();

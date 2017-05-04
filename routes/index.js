@@ -1,9 +1,11 @@
 var express = require('express');
 var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 var router = express.Router();
 var User = require('../models/user');
 var Chemical = require('../models/chemical');
 var Inventory = require('../models/inventory');
+var Service = require('../models/services');
 
 var isAuthenticated = function (req, res, next) {
 	// if user is authenticated in the session, call the next() to call the next request handler
@@ -28,7 +30,6 @@ router.get('/signup', isAuthenticated, function(req, res) {
 });
 
 router.get('/home', isAuthenticated, function(req, res) {
-	console.log("req", req);
 	if(req.user.local.firstLogin){
 		res.redirect('/changePassword');
 	}else {
@@ -38,6 +39,23 @@ router.get('/home', isAuthenticated, function(req, res) {
 router.get('/logout', function(req, res) {
 	req.logout();
 	res.redirect('/');
+});
+
+
+router.get('/getUsers', isAuthenticated, function(req, res){
+	if(!req.user.local.isAdmin){
+		console.log("not admin");
+		res.redirect('/home');
+	} else{
+		User.find({}, function(err, users){
+			console.log(users);
+			var userList = [];
+			for(var i = 0; i < users.length; i++ ){
+				userList.push(users[i].local.email)
+			}
+			res.send(userList);
+		})
+	}
 });
 
 router.post('/signup', passport.authenticate('local-signup', {
@@ -64,12 +82,29 @@ router.get('/currentUser',isAuthenticated, function(req, res){
 	res.send(req.user);
 });
 
+router.post('/resetPassword',isAuthenticated,  function(req, res){
+	if(req.user.local.isAdmin) {
+		User.findOne({'local.email': req.body.email}, function (err, user) {
+			console.log("user", user);
+			user.local.password = user.generateHash(req.body.password);
+			user.local.firstLogin = true;
+			user.local.passwordChangeDate = Date();
+			console.log("after change", user);
+			user.save();
+			res.send("Password Changed!");
+		});
+
+	} else{
+		res.redirect('/logout');
+	}
+});
+
 router.get('/getInventory/:owner', isAuthenticated, function(req, res){
 
 });
 
 router.post('/addInventory/:owner', isAuthenticated, function(req, res){
-	console.log(req, res);
+
 });
 
 router.post('/addChemical', isAuthenticated, function(req, res){
@@ -94,6 +129,25 @@ router.post('/addChemical', isAuthenticated, function(req, res){
 			}
 			newChemical.save();
 			res.send("Chemical Added");
+		}
+	});
+});
+
+router.post('/addService', isAuthenticated, function(req, res){
+	console.log(req.body.service);
+
+	Service.findOne({ 'service.name':  req.body.service.name }, function(err, result) {
+		if (err)
+			res.send(err);
+		if (result) {
+			res.send("Service already exists");
+		} else {
+			var newService = new Service();
+			console.log(newService);
+			newService.service.name = req.body.service.name;
+			newService.service.description = req.body.service.type;
+			newChemical.save();
+			res.send("Service Added");
 		}
 	});
 });

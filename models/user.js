@@ -7,7 +7,7 @@ var userSchema = mongoose.Schema({
 		password: String,
 		firstLogin: Boolean,
 		isAdmin: Boolean,
-		lastLogin: Date
+		passwordChangeDate: String
 	}
 });
 
