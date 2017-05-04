@@ -9,6 +9,13 @@
 			<label>Type</label>
 			<input type="text" class="form-control" ng-model="vm.chemical.type" name="ChemicalType"/>
 		</div>
+		<div class="form-group">
+			<label>Service Type</label>
+			<select ng-model="vm.service" class="form-control">
+				<option ng-repeat="service in vm.services" value="service.name">{{service.name}}</option>
+			</select>
+		</div>
+
 		<div>
 			<input type="submit" class="form-control" ng-click="vm.addChemical()" />
 		</div>

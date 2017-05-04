@@ -9,6 +9,10 @@ var ChemicalSchema = mongoose.Schema({
 		mixPerUnit: Number,
 		amountUnit: String,
 		amountPerUnit: Number,
+		dateAdded: Date,
+		active: Boolean,
+		lastModifiedUser: String,
+		lastModifiedDate: Date,
 		services: [{
 			name: String,
 			description: String

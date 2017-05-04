@@ -4,7 +4,11 @@ var EquipmentSchema = mongoose.Schema({
 	equipment: {
 		name: String,
 		description: String,
-		id: String
+		id: String,
+		dateAdded: Date,
+		active: Boolean,
+		lastModifiedUser: String,
+		lastModifiedDate: Date
 	}
 });
 

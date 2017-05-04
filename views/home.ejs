@@ -40,7 +40,13 @@
             </ul>
 
             <ul class="nav nav-sidebar" ng-if="<%=user.local.isAdmin%>">
+                <h4 style="padding-left: 20px">Admin</h4>
+                <li><a href="home#!/addService">Add New Service</a></li>
                 <li><a href="home#!/addChemical">Add New Chemical</a></li>
+                <li><a href="home#!/addTruck">Add New Truck</a></li>
+                <li><a href="/signup">Add New User</a></li>
+                <li><a href="home#!/resetUserPassword">Reset User Password</a></li>
+
             </ul>
         </div>
 <main ng-view class="container-fluid" role="main"></main>
@@ -56,4 +62,6 @@
 <script src="/javascripts/dataServices.js"></script>
 <script src="/javascripts/homeController.js"></script>
 <script src="/javascripts/resetUserController.js"></script>
+<script src="/javascripts/addServiceController.js"></script>
+<script src="/javascripts/addChemicalController.js"></script>
 </html>

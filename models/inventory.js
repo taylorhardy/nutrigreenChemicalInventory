@@ -9,13 +9,16 @@ var InventorySchema = mongoose.Schema({
 			price: Number,
 			mixUnit: String,
 			mixPerUnit: Number,
+			dateAdded: Date,
+			active: Boolean,
 			applicationTypes: [{
 				name: String
 			}]
 		},
 		amountAdded: Number,
 		amountUsed: Number,
-		totalAmount: Number
+		totalAmount: Number,
+		dateAdded: Date,
 	}]
 });
 

@@ -13,7 +13,6 @@
 				vm.currentUser = data;
 			});
 		};
-
 		init();
 	};
 })();

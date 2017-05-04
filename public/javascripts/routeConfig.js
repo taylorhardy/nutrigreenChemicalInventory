@@ -27,6 +27,11 @@
 				controller: 'addChemicalController',
 				controllerAs: 'vm'
 			})
+			.when('/addService', {
+				templateUrl: 'partials/addService.html',
+				controller: 'addServiceController',
+				controllerAs: 'vm'
+			})
 			.when('/logUsage', {
 				templateUrl: 'partials/logUsage.html',
 				controller: 'logUsageController',
