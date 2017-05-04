@@ -27,7 +27,22 @@
         </div>
     </div>
 </nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li class="active"><a href="#">On My Truck Report<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Add Inventory</a></li>
+                <li><a href="#">Log Daily Usage</a></li>
+                <li><a href="#">Usage History</a></li>
+                <li><a href="#">Export Inventory Report</a></li>
+                <li><a href="#">Report Issue</a></li>
+            </ul>
 
+            <ul class="nav nav-sidebar" ng-if="<%=user.local.isAdmin%>">
+                <li><a href="home#!/addInventory">Add New Chemical</a></li>
+            </ul>
+        </div>
 <main ng-view class="container-fluid" role="main"></main>
 </body>
 
@@ -38,5 +53,6 @@
 <script src="/javascripts/bootstrap.min.js"></script>
 <script src="/javascripts/app.js"></script>
 <script src="/javascripts/routeConfig.js"></script>
+<script src="/javascripts/dataServices.js"></script>
 <script src="/javascripts/homeController.js"></script>
 </html>

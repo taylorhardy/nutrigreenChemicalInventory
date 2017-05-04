@@ -1,1 +1,16 @@
-add inventory page
+<div class="col-sm-8 col-sm-offset-2">
+	<div class="jumbotron text-center">
+		<h1><span class="fa fa-sign-in"></span> Add Chemical</h1>
+			<div class="form-group">
+				<label>Name</label>
+				<input type="text" class="form-control" ng-model="vm.chemical.name" name="ChemicalName">
+			</div>
+			<div class="form-group">
+				<label>Type</label>
+				<input type="text" class="form-control" ng-model="vm.chemical.type" name="ChemicalType"/>
+			</div>
+			<div>
+				<input type="submit" class="form-control" ng-click="vm.addChemical()" />
+			</div>
+	</div>
+</div>

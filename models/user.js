@@ -6,7 +6,8 @@ var userSchema = mongoose.Schema({
 		email: String,
 		password: String,
 		firstLogin: Boolean,
-		isAdmin: Boolean
+		isAdmin: Boolean,
+		lastLogin: Date
 	}
 });
 
@@ -16,4 +17,7 @@ userSchema.methods.generateHash = function(password) {
 userSchema.methods.validPassword = function(password) {
 	return bcrypt.compareSync(password, this.local.password);
 };
+
+
+
 module.exports = mongoose.model('User', userSchema);
