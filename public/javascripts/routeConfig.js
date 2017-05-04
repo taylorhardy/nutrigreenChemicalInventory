@@ -22,6 +22,21 @@
 				controller: 'addInventoryController',
 				controllerAs: 'vm'
 			})
+			.when('/addChemical', {
+				templateUrl: 'partials/addChemical.html',
+				controller: 'addChemicalController',
+				controllerAs: 'vm'
+			})
+			.when('/logUsage', {
+				templateUrl: 'partials/logUsage.html',
+				controller: 'logUsageController',
+				controllerAs: 'vm'
+			})
+			.when('/reportIssue', {
+				templateUrl: 'partials/reportIssue.html',
+				controller: 'reportIssueController',
+				controllerAs: 'vm'
+			})
 			.otherwise({
 				redirectTo: '/home'
 			});

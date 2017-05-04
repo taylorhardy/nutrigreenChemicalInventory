@@ -32,15 +32,15 @@
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
                 <li class="active"><a href="#">On My Truck Report<span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Add Inventory</a></li>
-                <li><a href="#">Log Daily Usage</a></li>
-                <li><a href="#">Usage History</a></li>
-                <li><a href="#">Export Inventory Report</a></li>
-                <li><a href="#">Report Issue</a></li>
+                <li><a href="home#!/addInventory">Add Inventory</a></li>
+                <li><a href="home#!/logUsage">Log Daily Usage</a></li>
+                <li><a href="home#!">Usage History</a></li>
+                <li><a href="home#!">Export Inventory Report</a></li>
+                <li><a href="home#!/reportIssue">Report Issue</a></li>
             </ul>
 
             <ul class="nav nav-sidebar" ng-if="<%=user.local.isAdmin%>">
-                <li><a href="home#!/addInventory">Add New Chemical</a></li>
+                <li><a href="home#!/addChemical">Add New Chemical</a></li>
             </ul>
         </div>
 <main ng-view class="container-fluid" role="main"></main>
