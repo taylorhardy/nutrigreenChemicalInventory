@@ -1,11 +1,14 @@
 var mongoose = require('mongoose');
 
-var ServiceSchema = mongoose.Schema({
+var ServiceSchema = new mongoose.Schema({
 	service: {
 		name: String,
 		description: String,
 		dateAdded: Date,
-		active: Boolean
+		addedBy: String,
+		active: Boolean,
+		lastModified: Date,
+		ModifiedBy: String
 	}
 });
 

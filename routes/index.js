@@ -3,7 +3,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var router = express.Router();
 var User = require('../models/user');
-var Chemical = require('../models/chemical');
+var Chemical = require('../models/chemicals');
 var Inventory = require('../models/inventory');
 var Service = require('../models/services');
 
@@ -107,37 +107,70 @@ router.post('/addInventory', isAuthenticated, function(req, res){
 
 });
 
-router.post('/addChemical', isAuthenticated, function(req, res){
-	console.log(req.body.chemical);
+router.get('/getChemicals', isAuthenticated, function(req, res){
+	Chemical.find(function(err, chemicals){
+		console.log("getChemicals",chemicals);
+		var chemicalsList = [];
+		for(var i = 0; i < chemicals.length; i++ ){
+			chemicalsList.push(chemicals[i])
+		}
+		console.log(chemicalsList, err);
+		res.send(chemicalsList);
+	})
+});
 
-	Chemical.findOne({ 'chemical.name':  req.body.chemical.name }, function(err, result) {
+router.post('/addChemical', isAuthenticated, function(req, res){
+
+	Chemical.findOne({ 'chemical.name':  req.body.name }, function(err, result) {
 		if (err)
 			res.send(err);
 		if (result) {
 			res.send("Chemical already exists");
 		} else {
 			var newChemical = new Chemical();
-			console.log(newChemical);
-			newChemical.chemical.name = req.body.chemical.name;
-			newChemical.chemical.type = req.body.chemical.type;
-			newChemical.chemical.price = req.body.chemical.price;
-			newChemical.chemical.mixUnit = req.body.chemical.mixUnit;
-			newChemical.chemical.mixPerUnit = req.body.chemical.mixPerUnit;
-			newChemical.chemical.amountUnit = req.body.chemical.amountUnit;
-			newChemical.chemical.amountPerUnit = req.body.chemical.amountPerUnit;
-			newChemical.chemical.dateAdded = Date();
-			newChemical.chemical.lastModifiedDate = Date();
-			newChemical.chemical.lastModifiedUser = req.user.local.email;
-			newChemical.chemical.active = true;
-			newChemical.chemical.services = req.body.chemical.services;
+			console.log(Chemical);
+			newChemical.name = req.body.name;
+			newChemical.type = req.body.type;
+			newChemical.price = req.body.price;
+			newChemical.mixUnit = req.body.mixUnit;
+			newChemical.mixPerUnit = req.body.mixPerUnit;
+			newChemical.amountUnit = req.body.amountUnit;
+			newChemical.amountPerUnit = req.body.amountPerUnit;
+			newChemical.dateAdded = Date();
+			newChemical.addedBy = req.user.local.email;
+			newChemical.active = true;
+			newChemical.services = req.body.services;
 			newChemical.save();
 			res.send("Chemical Added");
 		}
 	});
 });
 
+router.post('/editChemical', isAuthenticated, function(req, res){
+	Chemical.findOne({ 'chemical.name':  req.body.chemical.name }, function(err, result) {
+		if (err)
+			res.send(err);
+		if (result) {
+			result.chemical.name = req.body.chemical.name;
+			result.chemical.type = req.body.chemical.type;
+			result.chemical.price = req.body.chemical.price;
+			result.chemical.mixUnit = req.body.chemical.mixUnit;
+			result.chemical.mixPerUnit = req.body.chemical.mixPerUnit;
+			result.chemical.amountUnit = req.body.chemical.amountUnit;
+			result.chemical.amountPerUnit = req.body.chemical.amountPerUnit;
+			result.chemical.active = req.body.chemical.active;
+			result.chemical.services = req.body.chemical.services;
+			result.chemical.lastModifiedDate = Date();
+			result.chemical.lastModifiedUser = req.user.local.email;
+			result.save();
+			res.send("Chemical Edited");
+		} else {
+			res.send("Chemical Not Found");
+		}
+	});
+});
+
 router.post('/addService', isAuthenticated, function(req, res){
-	console.log(req.body);
 
 	Service.findOne({ 'service.name':  req.body.name }, function(err, result) {
 		if (err)
@@ -149,8 +182,7 @@ router.post('/addService', isAuthenticated, function(req, res){
 			newService.service.name = req.body.name;
 			newService.service.description = req.body.description;
 			newService.service.dateAdded = Date();
-			newService.service.lastModifiedDate = Date();
-			newService.service.lastModifiedUser = req.user.local.email;
+			newService.service.addedBy = req.user.local.email;
 			newService.service.active = true;
 			newService.save();
 			res.send("Service Added");
@@ -159,8 +191,8 @@ router.post('/addService', isAuthenticated, function(req, res){
 });
 
 router.get('/getServices', isAuthenticated, function(req, res){
+	console.log(Service);
 		Service.find({}, function(err, services){
-			console.log(services);
 			var serviceList = [];
 			for(var i = 0; i < services.length; i++ ){
 				serviceList.push(services[i].service)
@@ -169,7 +201,24 @@ router.get('/getServices', isAuthenticated, function(req, res){
 			res.send(serviceList);
 		})
 });
-
+router.post('/editService', isAuthenticated, function(req, res){
+	Service.findOne({ 'service.name':  req.body.name }, function(err, result) {
+		if (err)
+			res.send(err);
+		if (result) {
+			res.send("Service already exists");
+		} else {
+			var newService = new Service();
+			newService.service.name = req.body.name;
+			newService.service.description = req.body.description;
+			newService.service.dateAdded = Date();
+			newService.service.addedBy = req.user.local.email;
+			newService.service.active = true;
+			newService.save();
+			res.send("Service Added");
+		}
+	});
+});
 router.post('/logUsage', isAuthenticated, function(req, res){
 
 });

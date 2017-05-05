@@ -4,6 +4,7 @@ var TruckSchema = mongoose.Schema({
 	truck: {
 		name: String,
 		defaultUser: String,
+		addedBy: String,
 		dateAdded: Date,
 		active: Boolean,
 		lastModifiedUser: String,

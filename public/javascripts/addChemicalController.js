@@ -11,6 +11,23 @@
 		vm.description = "";
 		vm.currentUser = {};
 		vm.services = [];
+		var chemical = {
+			name: "String",
+			type: "String",
+			price: 0,
+			mixUnit: "String",
+			mixPerUnit: 0,
+			amountUnit: "String",
+			amountPerUnit: 0,
+			dateAdded: Date(),
+			active: true,
+			lastModifiedUser: "String",
+			lastModifiedDate: Date(),
+			services: [{
+				name: "String",
+				description: "String"
+			}]
+		};
 
 		function getServices(){
 			$http.get('/getServices', {}).then(function (data) {
@@ -27,12 +44,9 @@
 		}
 
 		vm.addChemical = function(){
-			$http.post('/addService', {
-				name: vm.name,
-				description: vm.description
-			}).then(function () {
+			$http.post('/addChemical', chemical).then(function () {
 				vm.name = "";
-				vm.description = "";
+				vm.type = "";
 			});
 		};
 		init();
