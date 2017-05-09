@@ -47,6 +47,10 @@
 			$http.post('/addChemical', chemical).then(function () {
 				vm.name = "";
 				vm.type = "";
+			},function(response){
+				alert(vm.name + " Already Exists. To Edit Existing Chemicals please click on 'Edit Chemical' on the left hand menu.");
+				vm.name = "";
+				vm.type = "";
 			});
 		};
 		init();

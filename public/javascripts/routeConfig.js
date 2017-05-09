@@ -52,6 +52,16 @@
 				controller: 'editTruckController',
 				controllerAs: 'vm'
 			})
+			.when('/addEquipment', {
+				templateUrl: 'partials/addEquipment.html',
+				controller: 'addEquipmentController',
+				controllerAs: 'vm'
+			})
+			.when('/editEquipment', {
+				templateUrl: 'partials/editEquipment.html',
+				controller: 'editEquipmentController',
+				controllerAs: 'vm'
+			})
 			.when('/logUsage', {
 				templateUrl: 'partials/logUsage.html',
 				controller: 'logUsageController',

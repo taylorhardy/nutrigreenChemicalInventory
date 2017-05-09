@@ -32,13 +32,17 @@
 			<input type="text" class="form-control" ng-model="vm.price" name="price"/>
 		</div>
 		<div class="form-group">
+			<label>Active </label>
+			<input type="checkbox" class="form-control" ng-model="vm.active" name="active"/>
+		</div>
+		<div class="form-group">
 			<label>Service Type</label>
 			<select data-ng-model="vm.service" data-ng-options="i.name for i in vm.services" class="form-control">
 			</select>
 		</div>
 
 		<div>
-			<input type="submit" class="form-control" ng-click="vm.addChemical()" />
+			<input type="submit" class="form-control" ng-click="vm.editChemical()" />
 		</div>
 	</div>
 </div>

@@ -23,8 +23,12 @@
 			}).then(function () {
 				vm.name = "";
 				vm.description = "";
+			},function(response){
+				alert(vm.name + " Already Exists. To Edit Existing Services please click on 'Edit Service' on the left hand menu.");
+				vm.name = "";
+				vm.description = "";
 			});
 		};
 		init();
-	};
+	}
 })();

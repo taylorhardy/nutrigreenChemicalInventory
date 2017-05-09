@@ -42,6 +42,7 @@
 				    vm.mixUnit = vm.chemicals[i].mixUnit;
 				    vm.price = vm.chemicals[i].price;
 				    vm.service = vm.chemicals[i].services;
+				    vm.active = vm.chemicals[i].active
 			    }
 			 }
 		};
@@ -53,7 +54,8 @@
 				amountUnit: vm.amountUnit,
 				mixPerUnit: vm.mixPerUnit,
 				price: vm.price,
-				service: vm.service
+				service: vm.service,
+				active: vm.active
 			}).then(function () {
 				vm.name = "";
 				vm.type = "";
@@ -63,6 +65,7 @@
 				vm.mixUnit = "";
 				vm.price = "";
 				vm.service = "";
+				vm.active = false;
 			});
 		};
 		init();

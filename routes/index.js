@@ -121,7 +121,7 @@ router.post('/addChemical', isAuthenticated, function (req, res) {
 		if (err)
 			res.send(err);
 		if (result) {
-			res.send("Chemical already exists");
+			res.status(500).json({error: 'Chemical Already Exists'});
 		} else {
 			var newChemical = new Chemical();
 			newChemical.name = req.body.name;
@@ -160,7 +160,7 @@ router.post('/editChemical', isAuthenticated, function (req, res) {
 			result.save();
 			res.send("Chemical Edited");
 		} else {
-			res.send("Chemical Not Found");
+			res.status(500).json({error: 'Chemical Not Found'});
 		}
 	});
 });
@@ -171,7 +171,7 @@ router.post('/addService', isAuthenticated, function (req, res) {
 		if (err)
 			res.send(err);
 		if (result) {
-			res.send("Service already exists");
+			res.status(500).json({error: 'Service Already Exists'});
 		} else {
 			var newService = new Service();
 			newService.service.name = req.body.name;
@@ -204,11 +204,11 @@ router.post('/editService', isAuthenticated, function (req, res) {
 			result.service.description = req.body.description;
 			result.service.dateAdded = Date();
 			result.service.addedBy = req.user.local.email;
-			result.service.active = true;
+			result.service.active = req.body.active;
 			result.save();
 			res.send("Service Edited");
 		} else {
-			res.send("No Service Found");
+			res.status(500).json({error: 'No Truck Found'});
 		}
 	});
 });
@@ -231,7 +231,7 @@ router.post('/addTruck', isAuthenticated, function (req, res) {
 		if (err)
 			res.send(err);
 		if (result) {
-			res.send("Truck already exists");
+			res.status(500).json({error: 'Truck Already Exists'});
 		} else {
 			var newTruck = new Truck();
 			newTruck.truck.name = req.body.name;
@@ -261,26 +261,29 @@ router.post('/editTruck', isAuthenticated, function (req, res) {
 			res.send("Truck Successfully Edited");
 
 		} else {
-			res.send("Truck Does not Exist");
+			res.status(500).json({error: 'No Truck Found'});
 		}
 	});
 });
 
 router.post('/addEquipment', isAuthenticated, function (req, res) {
-	Equipment.findOne({'equipment.name': req.body.name}, function (err, result) {
+	Equipment.findOne({'equipment.id': req.body.id}, function (err, result) {
 		if (err) {
 			res.send(err);
 		}
 		if (result) {
-			res.send("Equipment Already Exists");
+			res.status(500).json({error: 'Equipment Already Exists'});
 		}
 		else {
-			var newEquipmnet = new Equipment();
-			newEquipmnet.equipment.name = req.body.name;
-			newEquipmnet.equipment.description = req.body.description;
-			newEquipmnet.equipment.id = req.body.id;
-			newEquipmnet.equipment.dateAdded = Date();
-			newEquipmnet.equipment.active = true;
+			var newEquipment = new Equipment();
+			newEquipment.equipment.name = req.body.name;
+			newEquipment.equipment.description = req.body.description;
+			newEquipment.equipment.id = req.body.id;
+			newEquipment.equipment.addedBy = req.user.local.email;
+			newEquipment.equipment.dateAdded = Date();
+			newEquipment.equipment.active = true;
+			newEquipment.save();
+			res.send("Equipment Added");
 		}
 	});
 });
@@ -293,6 +296,27 @@ router.get('/getEquipment', isAuthenticated, function(req, res){
 		}
 		res.send(equipmentList);
 	})
+});
+
+router.post('/editEquipment', isAuthenticated, function (req, res) {
+	Equipment.findOne({'equipment.id': req.body.id}, function (err, result) {
+		if (err) {
+			res.send(err);
+		}
+		if (result) {
+			result.equipment.name = req.body.name;
+			result.equipment.description = req.body.description;
+			result.equipment.id = req.body.id;
+			result.equipment.lastModifiedUser = req.user.local.email;
+			result.equipment.lastModifiedDate = Date();
+			result.equipment.active = req.body.active;
+			result.save();
+			res.send("Equipment Added");
+		}
+		else {
+			res.status(500).json({error: 'Equipment Not Found'});
+		}
+	});
 });
 
 module.exports = router;

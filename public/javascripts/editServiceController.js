@@ -23,22 +23,24 @@
 			});
 		}
 		vm.populateFields = function(){
-			console.log("this Ran");
 			for(var i = 0; i < vm.services.length; i++){
 				if (vm.services[i].name === vm.name){
 					console.log(vm.services[i]);
 					vm.description = vm.services[i].description;
+					vm.active = vm.services[i].active;
 				}
 			}
 		};
 		vm.editService = function(){
 			$http.post('/editService', {
 				name: vm.name,
-				description: vm.description
+				description: vm.description,
+				active: vm.active
 			}).then(function () {
 				getServices();
 				vm.name = "";
 				vm.description = "";
+				vm.active = false;
 			});
 		};
 		init();

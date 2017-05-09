@@ -6,6 +6,7 @@ var EquipmentSchema = mongoose.Schema({
 		description: String,
 		id: String,
 		dateAdded: Date,
+		addedBy: String,
 		active: Boolean,
 		lastModifiedUser: String,
 		lastModifiedDate: Date
