@@ -1,0 +1,22 @@
+<div class="col-sm-8 col-sm-offset-2">
+	<div class="jumbotron text-center">
+		<h1><span class="fa fa-sign-in"></span> Edit A Truck</h1>
+		<div class="form-group">
+			<label>Truck Name</label>
+			<select type="text" class="form-control" ng-model="vm.name" name="ServiceName" ng-change="vm.populateFields()">
+				<option ng-repeat="truck in vm.trucks"value="{{truck.name}}">{{truck.name}}</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label>Default User</label>
+			<select ng-model="vm.defaultUser" class="form-control" ng-options="user for user in vm.users"></select>
+		</div>
+		<div class="form-group">
+			<label>Active </label>
+			<input type="checkbox" class="form-control" ng-model="vm.active" name="active"/>
+		</div>
+		<div>
+			<input type="submit" class="form-control" ng-click="vm.editTruck()" />
+		</div>
+	</div>
+</div>

@@ -46,14 +46,25 @@
 			 }
 		};
 		vm.editChemical = function(){
-			$http.post('/editService', {
+			$http.post('/editChemical', {
 				name: vm.name,
-				description: vm.description
+				type: vm.type,
+				amountPerUnit: vm.amountPerUnit,
+				amountUnit: vm.amountUnit,
+				mixPerUnit: vm.mixPerUnit,
+				price: vm.price,
+				service: vm.service
 			}).then(function () {
 				vm.name = "";
-				vm.description = "";
+				vm.type = "";
+				vm.amountPerUnit = "";
+				vm.amountUnit = "";
+				vm.mixPerUnit = "";
+				vm.mixUnit = "";
+				vm.price = "";
+				vm.service = "";
 			});
 		};
 		init();
-	};
+	}
 })();

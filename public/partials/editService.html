@@ -1,0 +1,18 @@
+<div class="col-sm-8 col-sm-offset-2">
+	<div class="jumbotron text-center">
+		<h1><span class="fa fa-sign-in"></span> Edit Service</h1>
+		<div class="form-group">
+			<label>Service Name</label>
+			<select type="text" class="form-control" ng-model="vm.name" name="ServiceName" ng-change="vm.populateFields()">
+				<option ng-repeat="service in vm.services"value="{{service.name}}">{{service.name}}</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label>Service Description</label>
+			<input type="text" class="form-control" ng-model="vm.description" name="ServiceDescription"/>
+		</div>
+		<div>
+			<input type="submit" class="form-control" ng-click="vm.addService()" />
+		</div>
+	</div>
+</div>

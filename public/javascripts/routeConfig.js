@@ -37,6 +37,21 @@
 				controller: 'addServiceController',
 				controllerAs: 'vm'
 			})
+			.when('/editService', {
+				templateUrl: 'partials/editService.html',
+				controller: 'editServiceController',
+				controllerAs: 'vm'
+			})
+			.when('/addTruck', {
+				templateUrl: 'partials/addTruck.html',
+				controller: 'addTruckController',
+				controllerAs: 'vm'
+			})
+			.when('/editTruck', {
+				templateUrl: 'partials/editTruck.html',
+				controller: 'editTruckController',
+				controllerAs: 'vm'
+			})
 			.when('/logUsage', {
 				templateUrl: 'partials/logUsage.html',
 				controller: 'logUsageController',
