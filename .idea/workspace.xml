@@ -3,16 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="63984037-2de3-4000-9bec-f80148709c04" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/addChemicalController.js" afterPath="$PROJECT_DIR$/public/javascripts/addChemicalController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/addTruckController.js" afterPath="$PROJECT_DIR$/public/javascripts/addTruckController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/editChemicalController.js" afterPath="$PROJECT_DIR$/public/javascripts/editChemicalController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/editTruckController.js" afterPath="$PROJECT_DIR$/public/javascripts/editTruckController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/partials/addChemical.html" afterPath="$PROJECT_DIR$/public/partials/addChemical.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/partials/addTruck.html" afterPath="$PROJECT_DIR$/public/partials/addTruck.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/partials/editChemical.html" afterPath="$PROJECT_DIR$/public/partials/editChemical.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/partials/editEquipment.html" afterPath="$PROJECT_DIR$/public/partials/editEquipment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/partials/editService.html" afterPath="$PROJECT_DIR$/public/partials/editService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/partials/editTruck.html" afterPath="$PROJECT_DIR$/public/partials/editTruck.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -28,6 +19,16 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="551">
+              <caret line="44" column="75" lean-forward="false" selection-start-line="44" selection-start-column="75" selection-end-line="44" selection-end-column="75" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="editTruckController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/editTruckController.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -42,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/public/javascripts/addChemicalController.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="321">
-              <caret line="64" column="15" lean-forward="true" selection-start-line="53" selection-start-column="13" selection-end-line="64" selection-end-column="15" />
+              <caret line="64" column="15" lean-forward="false" selection-start-line="53" selection-start-column="13" selection-end-line="64" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -58,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editEquipmentController.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="editEquipmentController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/editEquipmentController.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
-              <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+              <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -112,17 +113,7 @@
         <entry file="file://$PROJECT_DIR$/public/partials/addChemical.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="465">
-              <caret line="31" column="8" lean-forward="true" selection-start-line="31" selection-start-column="8" selection-end-line="35" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addTruck.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/partials/addTruck.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="15" selection-end-column="14" />
+              <caret line="31" column="8" lean-forward="false" selection-start-line="31" selection-start-column="8" selection-end-line="35" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -191,7 +182,6 @@
         <option value="$PROJECT_DIR$/public/javascripts/editServiceController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/editEquipmentController.js" />
         <option value="$PROJECT_DIR$/views/home.ejs" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/public/javascripts/dataServices.js" />
         <option value="$PROJECT_DIR$/public/partials/addTruck.html" />
         <option value="$PROJECT_DIR$/public/javascripts/addTruckController.js" />
@@ -203,6 +193,7 @@
         <option value="$PROJECT_DIR$/public/partials/editService.html" />
         <option value="$PROJECT_DIR$/public/partials/editTruck.html" />
         <option value="$PROJECT_DIR$/public/partials/editEquipment.html" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
       </list>
     </option>
   </component>
@@ -264,6 +255,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nutrigreenchemicalinventory" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nutrigreenchemicalinventory" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="routes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -279,42 +284,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nutrigreenchemicalinventory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nutrigreenchemicalinventory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="partials" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nutrigreenchemicalinventory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nutrigreenchemicalinventory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javascripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -430,12 +399,12 @@
       <workItem from="1493838322392" duration="35404000" />
       <workItem from="1494257187468" duration="9552000" />
       <workItem from="1494342750989" duration="18821000" />
-      <workItem from="1494435742047" duration="2322000" />
+      <workItem from="1494435742047" duration="3631000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77106000" />
+    <option name="totallyTimeSpent" value="78415000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -760,14 +729,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1392">
-          <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/partials/addTruck.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -787,7 +748,7 @@
     <entry file="file://$PROJECT_DIR$/public/javascripts/addChemicalController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="321">
-          <caret line="64" column="15" lean-forward="true" selection-start-line="53" selection-start-column="13" selection-end-line="64" selection-end-column="15" />
+          <caret line="64" column="15" lean-forward="false" selection-start-line="53" selection-start-column="13" selection-end-line="64" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -795,7 +756,7 @@
     <entry file="file://$PROJECT_DIR$/public/partials/addChemical.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
-          <caret line="31" column="8" lean-forward="true" selection-start-line="31" selection-start-column="8" selection-end-line="35" selection-end-column="14" />
+          <caret line="31" column="8" lean-forward="false" selection-start-line="31" selection-start-column="8" selection-end-line="35" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -843,7 +804,15 @@
     <entry file="file://$PROJECT_DIR$/public/javascripts/editEquipmentController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+          <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="44" column="75" lean-forward="false" selection-start-line="44" selection-start-column="75" selection-end-line="44" selection-end-column="75" />
           <folding />
         </state>
       </provider>

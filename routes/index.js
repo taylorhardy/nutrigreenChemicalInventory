@@ -8,6 +8,33 @@ var Inventory = require('../models/inventory');
 var Service = require('../models/services');
 var Truck = require('../models/trucks');
 var Equipment = require('../models/equipment');
+//email variables
+var helper = require('sendgrid').mail;
+var from_email = new helper.Email('Nutri-GreenApp@nutrigreentulsa.com');
+var to_email = new helper.Email('taylor.hardy177@gmail.com');
+var subject = 'Hello World from the SendGrid Node.js Library!';
+var content = new helper.Content('text/plain', 'Hello, Email!');
+var emailAPIKey = "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";
+
+var sg = require('sendgrid')(emailAPIKey);
+
+var mail = new helper.Mail(from_email, subject, to_email, content);
+
+var request = sg.emptyRequest({
+	method: 'POST',
+	path: '/v3/mail/send',
+	body: mail.toJSON()
+});
+
+//function and callback to send email
+
+// sg.API(request, function(error, response) {
+// 	console.log(response.statusCode);
+// 	console.log(response.body);
+// 	console.log(response.headers);
+// });
+
+
 
 var isAuthenticated = function (req, res, next) {
 	// if user is authenticated in the session, call the next() to call the next request handler

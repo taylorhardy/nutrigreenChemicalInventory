@@ -20,6 +20,7 @@
     "morgan": "~1.8.1",
     "node-outlook": "^1.1.6",
     "passport": "^0.3.2",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "sendgrid": "^5.1.0"
   }
 }
