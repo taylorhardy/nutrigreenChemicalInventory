@@ -2,9 +2,15 @@
 	<div class="jumbotron text-center">
 		<h1><span class="fa fa-sign-in"></span> Edit A Truck</h1>
 		<div class="form-group">
+			<label class="checkbox-inline">
+				<input type="checkbox" class="" ng-model="vm.active" name="active"/>
+				Active </label>
+		</div>
+		<div class="form-group">
 			<label>Truck Name</label>
-			<select type="text" class="form-control" ng-model="vm.name" name="ServiceName" ng-change="vm.populateFields()">
-				<option ng-repeat="truck in vm.trucks"value="{{truck.name}}">{{truck.name}}</option>
+			<select type="text" class="form-control" ng-model="vm.name" name="ServiceName"
+					ng-change="vm.populateFields()">
+				<option ng-repeat="truck in vm.trucks" value="{{truck.name}}">{{truck.name}}</option>
 			</select>
 		</div>
 		<div class="form-group">
@@ -12,11 +18,13 @@
 			<select ng-model="vm.defaultUser" class="form-control" ng-options="user for user in vm.users"></select>
 		</div>
 		<div class="form-group">
-			<label>Active </label>
-			<input type="checkbox" class="form-control" ng-model="vm.active" name="active"/>
+			<label ng-repeat="equipment in vm.equipment" class="checkbox-inline">
+				<input type="checkbox" ng-model="equipment.checked" ng-change="vm.addEquipment()"> {{equipment.name}} -
+				{{equipment.id}}
+			</label>
 		</div>
 		<div>
-			<input type="submit" class="form-control" ng-click="vm.editTruck()" />
+			<input type="submit" class="form-control" ng-click="vm.editTruck()"/>
 		</div>
 	</div>
 </div>

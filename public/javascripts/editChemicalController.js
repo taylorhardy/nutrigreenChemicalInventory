@@ -30,6 +30,12 @@
 				getChemicals();
 			});
 		}
+
+		vm.addService = function(){
+			vm.servicesAssigned = $filter('filter')(vm.services, {checked: true});
+			console.log(vm.servicesAssigned);
+		};
+
 		vm.populateFields = function(){
 			console.log("this Ran");
 			 for(var i = 0; i < vm.chemicals.length; i++){
@@ -41,8 +47,16 @@
 				    vm.mixPerUnit = vm.chemicals[i].mixPerUnit;
 				    vm.mixUnit = vm.chemicals[i].mixUnit;
 				    vm.price = vm.chemicals[i].price;
-				    vm.service = vm.chemicals[i].services;
-				    vm.active = vm.chemicals[i].active
+				    vm.active = vm.chemicals[i].active;
+
+				    for (var j = 0; j < vm.services.length; j++) {
+					    for (var k = 0; k < vm.chemicals[i].services.length; k++) {
+						    if (vm.services[j].name === vm.chemicals[i].services[k].name) {
+							    vm.services[j].checked = true;
+						    }
+					    }
+				    }
+
 			    }
 			 }
 		};
@@ -57,6 +71,7 @@
 				service: vm.service,
 				active: vm.active
 			}).then(function () {
+				getServices();
 				vm.name = "";
 				vm.type = "";
 				vm.amountPerUnit = "";
@@ -65,6 +80,17 @@
 				vm.mixUnit = "";
 				vm.price = "";
 				vm.service = "";
+				vm.active = false;
+			},function(response){
+				alert(vm.name + " Not Found. To add new chemicals please click on 'Add Chemical' on the left hand menu.");
+				getServices();
+				vm.name = "";
+				vm.type = "";
+				vm.amountPerUnit = "";
+				vm.amountUnit = "";
+				vm.mixPerUnit = "";
+				vm.mixUnit = "";
+				vm.price = "";
 				vm.active = false;
 			});
 		};

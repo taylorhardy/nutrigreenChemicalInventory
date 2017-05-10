@@ -239,7 +239,7 @@ router.post('/addTruck', isAuthenticated, function (req, res) {
 			newTruck.truck.dateAdded = Date();
 			newTruck.truck.addedBy = req.user.local.email;
 			newTruck.truck.active = true;
-			newTruck.truck.equipmentAssigned = [];
+			newTruck.truck.equipmentAssigned = req.body.equipmentAssigned;
 			newTruck.save();
 			res.send("Truck Added");
 		}

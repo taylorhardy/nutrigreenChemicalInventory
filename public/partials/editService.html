@@ -2,9 +2,15 @@
 	<div class="jumbotron text-center">
 		<h1><span class="fa fa-sign-in"></span> Edit Service</h1>
 		<div class="form-group">
+			<label class="checkbox-inline">
+				<input type="checkbox" class="" ng-model="vm.active" name="active"/>Active
+			</label>
+		</div>
+		<div class="form-group">
 			<label>Service Name</label>
-			<select type="text" class="form-control" ng-model="vm.name" name="ServiceName" ng-change="vm.populateFields()">
-				<option ng-repeat="service in vm.services"value="{{service.name}}">{{service.name}}</option>
+			<select type="text" class="form-control" ng-model="vm.name" name="ServiceName"
+					ng-change="vm.populateFields()">
+				<option ng-repeat="service in vm.services" value="{{service.name}}">{{service.name}}</option>
 			</select>
 		</div>
 		<div class="form-group">
@@ -16,7 +22,7 @@
 			<input type="checkbox" class="form-control" ng-model="vm.active" name="active"/>
 		</div>
 		<div>
-			<input type="submit" class="form-control" ng-click="vm.addService()" />
+			<input type="submit" class="form-control" ng-click="vm.addService()"/>
 		</div>
 	</div>
 </div>

@@ -30,10 +30,9 @@
 			<input type="text" class="form-control" ng-model="vm.price" name="price"/>
 		</div>
 		<div class="form-group">
-			<label>Service Type</label>
-			<select ng-model="vm.service" class="form-control">
-				<option ng-repeat="service in vm.services" value="service.name">{{service.name}}</option>
-			</select>
+			<label ng-repeat="service in vm.services" class="checkbox-inline">
+				<input type="checkbox"  ng-model="service.checked" ng-change="vm.addService()"> {{service.name}}
+			</label>
 		</div>
 
 		<div>

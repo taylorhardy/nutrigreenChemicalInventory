@@ -10,10 +10,12 @@
 			<select ng-model="vm.defaultUser" class="form-control" ng-options="user for user in vm.users"></select>
 		</div>
 		<div class="form-group">
-				<button type="button" class="btn btn-default" ng-repeat="equipment in vm.equipment trackBy $index" ng-click="addEquipment(equipment)">{{equipment.name}} <span class="badge">{{equipment.id}}</span></button>
+			<label ng-repeat="equipment in vm.equipment" class="checkbox-inline">
+				<input type="checkbox"  ng-model="equipment.checked" ng-change="vm.addEquipment()"> {{equipment.name}} - {{equipment.id}}
+			</label>
 		</div>
 		<div>
-			<input type="submit" class="form-control" ng-click="vm.addTruck()" />
+			<input type="submit" class="form-control" ng-click="vm.addTruck()"/>
 		</div>
 	</div>
 </div>

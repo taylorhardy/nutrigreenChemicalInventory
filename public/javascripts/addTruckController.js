@@ -1,11 +1,11 @@
 (function () {
 	angular
 		.module('app')
-		.controller('addTruckController', addTruckController)
+		.controller('addTruckController', addTruckController);
 
-	addTruckController.$inject = ['$http', '$location', 'dataService'];
+	addTruckController.$inject = ['$http', '$location', 'dataService', '$filter'];
 
-	function addTruckController($http, $location, dataService) {
+	function addTruckController($http, $location, dataService, $filter) {
 		var vm = this;
 		vm.name = "";
 		vm.description = "";
@@ -33,8 +33,10 @@
 			getUsers();
 		}
 
-		vm.addEquipment = function(equipment){
-			vm.equipmentAssigned.push(equipment);
+
+		vm.addEquipment = function(){
+			vm.equipmentAssigned = $filter('filter')(vm.equipment, {checked: true});
+			console.log(vm.equipmentAssigned);
 		};
 
 		vm.addTruck = function(){
@@ -44,13 +46,15 @@
 				addedBy: vm.currentUser.name,
 				dateAdded: Date(),
 				active: true,
-				equipmentAssigned: []
+				equipmentAssigned: vm.equipmentAssigned
 			}).then(function () {
+				getEquipment();
 				vm.name = "";
 				vm.defaultUser = "";
 				vm.equipmentAssigned = [];
 			},function(response){
 				alert(vm.name + " Already Exists. To Edit Existing Trucks please click on 'Edit Truck' on the left hand menu.");
+				getEquipment();
 				vm.name = "";
 				vm.defaultUser = "";
 				vm.equipmentAssigned = [];
