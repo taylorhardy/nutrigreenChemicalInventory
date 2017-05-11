@@ -14,7 +14,7 @@ var from_email = new helper.Email('Nutri-GreenApp@nutrigreentulsa.com');
 var to_email = new helper.Email('taylor.hardy177@gmail.com');
 var subject = 'Hello World from the SendGrid Node.js Library!';
 var content = new helper.Content('text/plain', 'Hello, Email!');
-var emailAPIKey = "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";
+var emailAPIKey = "Enter your SG Email API KEY HERE";
 
 var sg = require('sendgrid')(emailAPIKey);
 
